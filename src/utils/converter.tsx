@@ -12,11 +12,22 @@ class Converter {
         }
 
         const parser = new DOMParser();
-        const doc = parser.parseFromString(this.content, 'text/html');
-        const rootElement = doc.body.firstChild;
 
-        if(rootElement) {
-            return this.parseElement(rootElement as HTMLElement);
+        // TODO: Abstract later on
+        const doc = parser.parseFromString(this.content, 'text/html');
+        const rootElements = doc.body.children;
+
+        if(rootElements) {
+            if (rootElements.length === 1) {
+                return this.parseElement(rootElements[0] as HTMLElement);
+            } else {
+                const result: object[] = [];
+                for (const element of rootElements) {
+                  const jsonElement = this.parseElement(element as HTMLElement);
+                  result.push(jsonElement);
+                }
+                return result;
+            }
         }
         return {}
     }
@@ -26,7 +37,13 @@ class Converter {
             throw new Error('Content must be a valid JSON object');
         }
     
-        return this.buildElement(this.content);
+        if (Array.isArray(this.content)) {
+            // Handle array of JSON objects
+            return this.content.map((json) => this.buildElement(json)).join('');
+          } else {
+            // Handle single JSON object
+            return this.buildElement(this.content);
+          }
     }
 
     private buildElement(json: any): string {
@@ -56,7 +73,7 @@ class Converter {
         }
     
         return html;
-      }
+    }
 
     private parseElement(element: HTMLElement): object {
         const json: any = {};

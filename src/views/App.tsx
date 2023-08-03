@@ -1,13 +1,14 @@
 import React from 'react';
 import elements from '../config/elements';
 import FrameHTML from './editor/frame/FrameView/FrameHTML';
+import WorkspaceView from './editor/workspace/WorkspaceView';
 
 function App() {
     return (
-        <div>
-            <div className="flex">
+        <div className="relative h-screen overflow-hidden">
+            <div className="flex h-full">
 
-                <aside className="p-4">
+                {/* <aside className="p-4 overflow-auto">
                     <div>
                         <h3 className="font-bold text-xl">Elements</h3>
                         <div>
@@ -20,14 +21,21 @@ function App() {
                             })}
                         </div>
                     </div>
-                </aside>
+                </aside> */}
 
-                <main className="border-4 border-red-500 w-full">
-                    <FrameHTML />
+                <main className="border-4 border-red-500 w-full
+                
+                flex grow flex-col overflow-hidden relative h-full">
+                    <div className="flex flex-col grow">
+                        <div className="flex flex-col grow h-full">
+                            <WorkspaceView />
+                        </div>
+                    </div>
                 </main>
 
                 <aside>
                     Properties
+                    {/* When you click show componentn here */}
                 </aside>
 
             </div>

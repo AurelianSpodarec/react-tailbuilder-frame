@@ -1,40 +1,27 @@
 import React, { useContext, useEffect, useState } from 'react'; 
 import { useFrame } from 'react-frame-component';
 
-
-/////////////////////////////////////////////////
-// MOUSE EVENT FUNCTIONS
-/////////////////////////////////////////////////
 const FrameContent = (props:any) => {
     const { document: frameDocument, window: frameWindow }:FrameContextProps = useFrame();
 
-    // useEffect(() => {
-    //     const timestamp = new Date().getTime();     
-    //     if(frameDocument) {
-    //         const newStyles = frameDocument.createElement('script');
-    //         newStyles.src = `https://cdn.tailwindcss.com?timestamp=${timestamp}`;
-    //         frameDocument?.head.appendChild(newStyles);
-    //     }
-    
-    //     const newScript = frameDocument?.createElement('script');
-    //     if(newScript) {
-    //         newScript.innerHTML = `
-    //             tailwind.config = {
-    //                 content: [
-    //                     "./src/**/*.{js,jsx,ts,tsx}",
-    //                 ],
-    //                 theme: {
-    //                     extend: ${JSON.stringify(currentTokens)}
-    //                 },
-    //                 plugins: [],
-    //             };
-    //         `;
-    //         frameDocument?.body.appendChild(newScript);
-    //     }
-    // }, [currentTokens])
+    function handleSetSelectedElement(event) {
+        console.log("hello", event.target)
+        console.log(event.target.getBoundingClientRect())
+    }
 
-  
-    return null;
+    function onLoad() {
+        if(!frameDocument) return;
+
+        frameDocument.addEventListener("click", handleSetSelectedElement);
+        return () => {
+            frameDocument.removeEventListener("click", handleSetSelectedElement);
+        }
+    }
+
+    useEffect(() => {
+        onLoad()
+    }, [])
+
 };
 
 export default FrameContent;
