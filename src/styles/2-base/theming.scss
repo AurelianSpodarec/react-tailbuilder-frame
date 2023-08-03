@@ -1,0 +1,100 @@
+// ==========================================================================
+// #Base: Themes
+// ==========================================================================
+//
+//  Table of Content
+//  - Primary Color Theme
+//  - Background Themes
+//  - Type: Neon, Solid
+//
+
+
+// EDITOR: Type
+// ==========================================================================
+
+
+// EDITOR: Theme
+// ==========================================================================
+
+
+:root{
+    --color-bg-base: 255, 255, 255;
+    // --brand-color: blue;
+    // --color-text-base: red;
+    // --color-text-muted: red;
+    // --color-background: black;
+    // --color-bg-base: 255, 255, 255;
+}
+
+.theme-editor {
+
+    &--lights-out {
+        --color-bg-base: 12, 14, 17;
+        --color-text-leading: 0, 0, 0;
+        --color-text-base: 15, 20, 25;
+        --color-text-muted: 83, 100, 113;
+    }
+}
+
+
+// EDITOR: Primary Color
+// ==========================================================================
+
+.theme-editor__primary {
+
+    &--1 {
+        // --color-accent: 255, 138, 76;
+        // --color-accent-default:  255, 138, 76;
+        // --color-accent-lighter: 255, 138, 76;
+        // --color-accent-darker: 255, 138, 76;
+        
+        // --color-accent-100
+        --color-accent-200: 44, 28, 15;
+        --color-accent-500: 255, 138, 76;
+        // --color-accent-800: 
+
+        // --color-svg-icon-accent: 
+        --solid:  17, 24, 39;
+        --solid-900: 209, 220, 236;
+        --main-500:  255, 138, 76;
+ 
+        
+        --base-200:  45, 55, 72;
+        --base-300: 74, 85, 104;
+        --base-400:  74, 85, 104;
+        --base-500:  113, 128, 150;
+
+    }   
+
+    &--2 {
+        --color-accent-500: 255, 212, 0;
+    }
+
+    &--3 {
+        --color-accent-500: 249, 24, 128;
+
+        --solid:  17, 24, 39;
+        --solid-900: 209, 220, 236;
+        --main-500:  249, 24, 128;
+ 
+        
+        --base-200:  45, 55, 72;
+        --base-300: 74, 85, 104;
+        --base-400:  74, 85, 104;
+        --base-500:  113, 128, 150;
+    }
+
+    &--4 {
+        --color-accent-500: 120, 86, 255;
+    }
+
+    &--5 {
+        --color-accent-500: 8, 248, 255;
+    }
+    
+    &--6 {
+        --color-accent-500: 0, 186, 124;
+    }
+}
+
+ 

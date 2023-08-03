@@ -1,0 +1,98 @@
+// ==========================================================================
+// #Base: Global
+// ==========================================================================
+
+
+
+body {
+    /* font-family: Montserrat, Helvetica Neue,Helvetica,Roboto,Arial,sans-serif; */
+    font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+body::-webkit-scrollbar {
+    width: 7px;
+    height: 5px;
+}
+
+body::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #e1e1e1;
+    border: 0px none #ffffff;
+    border-radius: 50px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: #ececec;
+}
+
+body::-webkit-scrollbar-thumb:active {
+    background: #ffffff;
+}
+
+body::-webkit-scrollbar-track {
+    background: #666666;
+    border: 0px none #ffffff;
+    border-radius: 0px;
+}
+
+body::-webkit-scrollbar-track:hover {
+    background: #666666;
+}
+    
+body::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+
+#__next {
+    height: 100%;
+}
+
+
+
+// Global for now - needs name change
+.sidebar-scrollbar::-webkit-scrollbar {
+    width: 7px;
+    height: 5px;
+}
+
+.sidebar-scrollbar::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
+}
+
+.sidebar-scrollbar::-webkit-scrollbar-thumb {
+    background: #7c7c7c;
+    border: 0px none #ffffff;
+    border-radius: 50px;
+}
+
+.sidebar-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #ececec;
+}
+
+.sidebar-scrollbar::-webkit-scrollbar-thumb:active {
+    background: #ffffff;
+}
+
+.sidebar-scrollbar::-webkit-scrollbar-track {
+    background: #474747;
+    border: 0px none #ffffff;
+    border-radius: 0px;
+}
+
+.sidebar-scrollbar::-webkit-scrollbar-track:hover {
+    background: #666666;
+}
+    
+.sidebar-scrollbar::-webkit-scrollbar-corner {
+    background: transparent;
+}
