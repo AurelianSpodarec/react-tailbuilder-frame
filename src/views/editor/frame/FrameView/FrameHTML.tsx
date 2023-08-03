@@ -13,6 +13,79 @@ import Converter from '../../../../utils/converter';
 //     </div>
 // `
 
+
+
+// What is a component? Made of Elements and it can have custom properties
+// Use can create random properties and then assign something
+// It has PROPERTIES: Variant, Boolean, Instance Swap, Text
+
+// Example properties one can add: 
+// Size: Small, Medium, large
+// State: Default, Hover
+
+// What is the property going to affect? Padding, state, color, background color... ?
+// If user creates a new property called "SIZE", what will this change? padding, font
+
+// Component: Button
+// --------------------------------------------------
+// Property = Size
+// Size = small:: padding: 3px, fontSize: 5px
+// Size = medium:: paddingg: 5px, fontSize: 7px
+// Property = Type
+// Type = primary:: bgColor: red, text: black
+// Type = secondary:: bgColor: green, text: black
+
+// User can create a component and give it a name
+// User can set custom properties
+// - Properties will have custom names that will affect certain CSS/class properties
+
+// const components = [
+//     {
+//         id: "xxx",
+//         name: "Button",
+//         slug: "button", //unique
+//         // tag?
+//         properties: { // custom properties
+//             // size: {
+//             //     // default
+//             //     padding: "py-2 px-2",
+//             //     fontSize: "text-2xl",
+//             //     small: {
+//             //         padding: "py-4 px-4",
+//             //         fontSize: "text-2xl",
+//             //     },
+//             //     medium: {
+//             //         padding: "py-10 px-10",
+//             //         fontSize: "text-5xl",
+//             //     }
+//             // }
+//         }
+//     }
+// ]
+
+
+
+const components = [
+    {
+        id: "xxx",
+        name: "Button",
+        slug: "button", //unique
+        html: `<button data-componentID="xxx" type="button" className="py-2 px-2 text-2xl>{buttonText}</button>`
+    },
+    {
+        id: "xxx-xxx",
+        name: "Card",
+        slug: "card",
+        html: `<div class="border p-4">{text}</div>`
+    }
+]
+
+// Above will result in:
+// If we select: Button, Size = small, we get:
+const dummyComponent = `
+    <button data-componentID="xxx" type="button" className="py-2 px-2 text-2xl>Button</button>
+`
+
 const randomHTML = `
 <div>
   <h2 class="text-sm font-medium text-gray-500">Pinned Projects</h2>

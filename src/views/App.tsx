@@ -26,6 +26,10 @@ function App() {
                     <FrameHTML />
                 </main>
 
+                <aside>
+                    Properties
+                </aside>
+
             </div>
         </div>
     )
