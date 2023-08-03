@@ -7,7 +7,6 @@ function App() {
         <div>
             <div className="flex">
 
-
                 <aside className="p-4">
                     <div>
                         <h3 className="font-bold text-xl">Elements</h3>
@@ -21,9 +20,7 @@ function App() {
                             })}
                         </div>
                     </div>
-
                 </aside>
-
 
                 <main className="border-4 border-red-500 w-full">
                     <FrameHTML />
