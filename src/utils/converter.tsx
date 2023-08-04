@@ -1,3 +1,5 @@
+import { nanoid } from 'nanoid'
+
 class Converter {
     content: string | object;
 
@@ -48,28 +50,31 @@ class Converter {
 
     private buildElement(json: any): string {
         if (!json || typeof json !== 'object' || !json.tag) {
-          throw new Error('Invalid JSON format. Missing "tag" property.');
+            throw new Error('Invalid JSON format. Missing "tag" property.');
         }
-    
+        
         const { tag, attributes, children, text } = json;
+        const uuid = nanoid()
+
         let html = `<${tag}`;
+        html += ` data-uuid="${uuid}"`
     
         if (attributes && typeof attributes === 'object') {
-          for (const [attrName, attrValue] of Object.entries(attributes)) {
-            html += ` ${attrName}="${attrValue}"`;
-          }
+            for (const [attrName, attrValue] of Object.entries(attributes)) {
+                html += ` ${attrName}="${attrValue}"`;
+            }
         }
     
         if (children && Array.isArray(children) && children.length > 0) {
-          html += '>';
-          for (const child of children) {
-            html += this.buildElement(child);
-          }
-          html += `</${tag}>`;
+            html += '>';
+            for (const child of children) {
+                html += this.buildElement(child);
+            }
+            html += `</${tag}>`;
         } else if (text !== undefined) {
-          html += `>${text}</${tag}>`;
+            html += `>${text}</${tag}>`;
         } else {
-          html += '/>';
+            html += '/>';
         }
     
         return html;

@@ -1,13 +1,24 @@
-import React, { useContext, useEffect, useState } from 'react'; 
+import React, { useEffect, useState } from 'react'; 
 import { useFrame } from 'react-frame-component';
 
-const FrameContent = (props:any) => {
+
+// Get the UUID and find the object inside JSON
+// Store selected UUID in Redux 
+// Highlight the element on the page
+// Find and update using the UUID in JSON - this should automatically update the HTML using some sort of algorithm
+// Find a way to update the HTML in chunks, React uses "diffing algorithm"
+
+const FrameContent = () => {
     const { document: frameDocument, window: frameWindow }:FrameContextProps = useFrame();
 
-    function handleSetSelectedElement(event) {
-        console.log("hello", event.target)
-        console.log(event.target.getBoundingClientRect())
+    function handleSetSelectedElement(event: MouseEvent | null) {
+        console.log(event)
+        if(event) {
+            const uuid = (event.target as HTMLElement).getAttribute('data-uuid');
+            console.log(uuid)
+        }
     }
+    // console.log(event.target.getBoundingClientRect())
 
     function onLoad() {
         if(!frameDocument) return;
