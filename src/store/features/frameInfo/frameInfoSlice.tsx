@@ -15,6 +15,8 @@ import { createSlice } from "@reduxjs/toolkit";
 // Selected Element[JSON]
 // Multi device: Show mobile, table, desktop [custom]
 
+// Add UUID to JSON
+
 const initialState = {
     content: `
     [
@@ -2440,6 +2442,10 @@ const initialState = {
         }
     ]`
 };
+
+// Project {
+// 
+// }
 
 const frameInfoSlice = createSlice({
     name: "frameInfo",

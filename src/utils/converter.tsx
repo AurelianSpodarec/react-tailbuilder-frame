@@ -1,6 +1,8 @@
 import { nanoid } from 'nanoid'
 
-class Converter {
+// TODO: Add JSX converter, React etc...
+
+class Converter { 
     content: string | object;
 
     constructor(content: string | object) {
@@ -31,6 +33,7 @@ class Converter {
                 return result;
             }
         }
+
         return {}
     }
 
@@ -57,7 +60,10 @@ class Converter {
         const uuid = nanoid()
 
         let html = `<${tag}`;
-        html += ` data-uuid="${uuid}"`
+        
+        if(attributes && !attributes['data-uuid']) {
+            html += ` data-uuid="${uuid}"`
+        }
     
         if (attributes && typeof attributes === 'object') {
             for (const [attrName, attrValue] of Object.entries(attributes)) {
