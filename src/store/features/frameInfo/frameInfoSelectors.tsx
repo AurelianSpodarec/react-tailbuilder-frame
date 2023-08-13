@@ -11,8 +11,8 @@ export const getActiveContentHTML = () => useSelector((state: { content: IFrameI
     const jsonConverter = new Converter(activeContent)
     const convertedJson = jsonConverter.jsonToHtml()
 
-    console.log("getActiveContentHTML", convertedJson)
-    console.log("state.frameInfo.content", activeContent)
+    // console.log("getActiveContentHTML", convertedJson)
+    // console.log("state.frameInfo.content", activeContent)
     
     return convertedJson;
 })

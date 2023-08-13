@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useFrame } from 'react-frame-component';
 
 import { getActiveContentJSON } from '../../../../store/features/frameInfo/frameInfoSelectors';
-import { updateJSONClass } from '../../../../store/features/frameInfo/frameInfoSlice';
+import { updateJSONClass, updateJsonObject } from '../../../../store/features/frameInfo/frameInfoSlice';
 
 import helperJSON from '../../../../utils/helperJSON';
 import { useDispatch } from 'react-redux';
@@ -18,6 +18,7 @@ const FrameContent = () => {
             const uuid = (event.target as HTMLElement).getAttribute('data-uuid');
             const object = helperJSON.findParentObjectWithValue(reduxActiveContent, uuid)
             
+            // UPDATE CLASS
             console.log("frame content", object)
             let classArray = object.attributes.class.split(" ")
             classArray.push("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ bg-red-500 text-5xl font-bold border-2 border-green-500")
@@ -30,8 +31,18 @@ const FrameContent = () => {
                     class: updatedClassString
                 }
             }
+
+
+            // UPDATE TAG
+            // const updatedObject = {
+            //     ...object,
+            //     tag: "h1",
+            //     attributes: {
+            //         ...object.attributes,
+            //     }
+            // }
             console.log({updatedObject})
-            dispatch(updateJSONClass(updatedObject))
+            dispatch(updateJsonObject(updatedObject))
         
         }
     }

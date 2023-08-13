@@ -11,7 +11,7 @@ function FrameHTML() {
     const [frameState, setFrameState] = useState({ initialContent: tailwindcss()});
     const reduxActiveContent = getActiveContentHTML()
     
-    console.log("FrameHTML", reduxActiveContent)
+    // console.log("FrameHTML", reduxActiveContent)
     
     if(!frameState.initialContent) return <></>
     return (
