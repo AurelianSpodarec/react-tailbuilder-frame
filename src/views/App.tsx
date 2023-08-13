@@ -2,8 +2,12 @@ import React from 'react';
 import elements from '../config/elements';
 import FrameHTML from './editor/frame/FrameView/FrameHTML';
 import WorkspaceView from './editor/workspace/WorkspaceView';
+import { useDispatch } from 'react-redux';
+import { getActiveContentJSON } from '../store/features/frameInfo/frameInfoSelectors';
 
 function App() {
+    const activeContent = getActiveContentJSON()
+    console.log("activeContent", activeContent)
     return (
         <div className="relative h-screen overflow-hidden">
             <div className="flex h-full">

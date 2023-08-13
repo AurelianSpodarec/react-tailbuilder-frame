@@ -1,7 +1,5 @@
 import { nanoid } from 'nanoid'
 
-// TODO: Add JSX converter, React etc...
-
 class Converter { 
     content: string | object;
 
@@ -9,7 +7,6 @@ class Converter {
         this.content = content;
     }
 
-    // TODO: Component ID
     htmlToJson(): object {
         if (typeof this.content !== 'string') {
             throw new Error('Content must be an HTML string');
@@ -60,7 +57,7 @@ class Converter {
         const uuid = nanoid()
 
         let html = `<${tag}`;
-        
+
         if(attributes && !attributes['data-uuid']) {
             html += ` data-uuid="${uuid}"`
         }

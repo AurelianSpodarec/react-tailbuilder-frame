@@ -1,35 +1,38 @@
 import React, { useEffect, useState } from 'react'; 
 import { useFrame } from 'react-frame-component';
-import { getActiveContent } from '../../../../store/features/frameInfo/frameInfoSelectors';
 
-function findParentObjectWithValue(obj, targetValue, parent = null, parentKey = null) {
-    for (const key in obj) {
-        if (typeof obj[key] === 'object') {
-            const result = findParentObjectWithValue(obj[key], targetValue, obj, key);
-            if (result !== undefined) {
-                return result;
-            }
-        } else if (obj[key] === targetValue) {
-            return parent;
-        }
-    }
-}
+import { getActiveContentJSON } from '../../../../store/features/frameInfo/frameInfoSelectors';
+import { updateJSONClass } from '../../../../store/features/frameInfo/frameInfoSlice';
 
+import helperJSON from '../../../../utils/helperJSON';
+import { useDispatch } from 'react-redux';
 
 const FrameContent = () => {
     const { document: frameDocument, window: frameWindow }:FrameContextProps = useFrame();
-
-    const reduxActiveContent = getActiveContent()
-
+    const dispatch = useDispatch()
+    const reduxActiveContent = getActiveContentJSON()
+    
     function handleSetSelectedElement(event: MouseEvent | null) {
         if(event) {
+            console.log({reduxActiveContent})
             const uuid = (event.target as HTMLElement).getAttribute('data-uuid');
-            console.log(uuid)
-
+            const object = helperJSON.findParentObjectWithValue(reduxActiveContent, uuid)
             
-            const a = findParentObjectWithValue(reduxActiveContent, uuid)
-            console.log(a)
+            console.log("frame content", object)
+            let classArray = object.attributes.class.split(" ")
+            classArray.push("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ bg-red-500 text-5xl font-bold border-2 border-green-500")
+            const updatedClassString = classArray.join(" ")
 
+            const updatedObject = {
+                ...object,
+                attributes: {
+                    ...object.attributes,
+                    class: updatedClassString
+                }
+            }
+            console.log({updatedObject})
+            dispatch(updateJSONClass(updatedObject))
+        
         }
     }
 
@@ -45,7 +48,6 @@ const FrameContent = () => {
     useEffect(() => {
         onLoad()
     }, [])
-
 };
 
 export default FrameContent;
