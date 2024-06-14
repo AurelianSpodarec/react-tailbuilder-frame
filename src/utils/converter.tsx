@@ -40,10 +40,8 @@ class Converter {
         }
     
         if (Array.isArray(this.content)) {
-            // Handle array of JSON objects
             return this.content.map((json) => this.buildElement(json)).join('');
           } else {
-            // Handle single JSON object
             return this.buildElement(this.content);
           }
     }

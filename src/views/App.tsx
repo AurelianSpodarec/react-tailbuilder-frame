@@ -16,6 +16,7 @@ function App() {
     useEffect(() => {
         dispatch(setContent())
     }, [])
+    
     return (
         <div className="relative h-screen overflow-hidden">
             <div className="flex h-full">

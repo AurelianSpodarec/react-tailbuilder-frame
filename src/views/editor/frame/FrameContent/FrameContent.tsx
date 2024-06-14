@@ -18,6 +18,7 @@ const FrameContent = () => {
             const uuid = (event.target as HTMLElement).getAttribute('data-uuid');
             const object = helperJSON.findParentObjectWithValue(reduxActiveContent, uuid)
             
+            
             // UPDATE CLASS
             console.log("frame content", object)
             let classArray = object.attributes.class.split(" ")

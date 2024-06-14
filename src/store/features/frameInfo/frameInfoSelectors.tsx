@@ -7,12 +7,8 @@ import Converter from "../../../utils/converter";
 export const getActiveContentHTML = () => useSelector((state: { content: IFrameInfoState }) => {
     const activeContent = state.frameInfo.content;
 
-    // OLD STATE
     const jsonConverter = new Converter(activeContent)
     const convertedJson = jsonConverter.jsonToHtml()
-
-    // console.log("getActiveContentHTML", convertedJson)
-    // console.log("state.frameInfo.content", activeContent)
     
     return convertedJson;
 })
