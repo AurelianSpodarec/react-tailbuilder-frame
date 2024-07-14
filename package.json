@@ -10,14 +10,22 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@radix-ui/react-select": "^2.1.1",
     "@reduxjs/toolkit": "^1.9.5",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.408.0",
     "nanoid": "^4.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-frame-component": "^5.2.6",
-    "react-redux": "^8.1.2"
+    "react-reconciler": "^0.29.2",
+    "react-redux": "^8.1.2",
+    "tailwind-merge": "^2.4.0",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@types/node": "^20.14.10",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
