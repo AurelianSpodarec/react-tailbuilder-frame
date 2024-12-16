@@ -29,23 +29,26 @@ import {
 
 
 const componentTest = {
-  name: "Button", // To specify the component type, in this case, "Button"
+  name: "Button",
+  tag: "button", //button/link(a href)
   properties: {
     block: {
-      current: true
+      default: false,
+      current: true,
     },
     size: {
+      default: "md",
       current: "lg",
       options: [
         { value: "sm", label: "Small", className: "text-sm" },
-        { value: "md", label: "Medium", className: "button-small" },
-        { value: "lg", label: "Large", className: "button-lg" }
+        { value: "md", label: "Medium", className: "text-md" },
+        { value: "lg", label: "Large", className: "text-lg" }
       ]
     },
   }
 }
 
-function GUICOmponentSelect({ currentValue, values }) {
+function GUICOmponentSelect({ values }) {
   return (
     <div className="flex align-center">
       <Select>
